@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Text Encryption Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="brand">🔐 SecureCrypt</div>
+  <nav>
+    <button class="nav-btn active" data-page="home">Home</button>
+    <button class="nav-btn" data-page="tool">Encryption Tool</button>
+    <button class="nav-btn" data-page="about">About</button>
+    <button class="nav-btn" data-page="contact">Contact</button>
+    <button id="themeBtn" class="icon-btn" title="Toggle theme">🌙</button>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <div>
+      <span class="badge">FINAL CAPSTONE PROJECT</span>
+      <h1>Secure Text<br><span>Encryption Portal</span></h1>
+      <p>Learn and demonstrate classical cryptography and SHA-256 hashing with a clean, responsive web interface.</p>
+      <button class="primary" data-go="tool">Open Encryption Tool →</button>
+    </div>
+    <div class="hero-card">
+      <div class="lock">🔐</div>
+      <h3>Cryptography Toolkit</h3>
+      <p>Caesar • Vigenère • SHA-256 • Brute Force</p>
+    </div>
+  </div>
+  <div class="cards">
+    <article><b>🔤 Caesar Cipher</b><p>Shift alphabet characters using a numeric key.</p></article>
+    <article><b>🔑 Vigenère Cipher</b><p>Polyalphabetic substitution using a repeating keyword.</p></article>
+    <article><b>#️⃣ SHA-256</b><p>Generate a 256-bit one-way cryptographic hash.</p></article>
+    <article><b>🧪 Brute Force</b><p>Try all Caesar shifts and rank likely plaintexts.</p></article>
+  </div>
+</section>
+
+<section id="tool" class="page">
+  <div class="section-title">
+    <span class="badge">CRYPTOGRAPHY TOOLKIT</span>
+    <h2>Encrypt, Decrypt & Hash</h2>
+    <p>All browser-side operations are performed locally. No text is uploaded.</p>
+  </div>
+  <div class="tool-grid">
+    <div class="panel">
+      <label>Algorithm</label>
+      <select id="algorithm">
+        <option value="caesar">Caesar Cipher</option>
+        <option value="vigenere">Vigenère Cipher</option>
+        <option value="sha256">SHA-256 Hash</option>
+        <option value="brute">Caesar Brute Force</option>
+      </select>
+
+      <div id="modeWrap">
+        <label>Operation</label>
+        <div class="segmented">
+          <button class="mode active" data-mode="encrypt">Encrypt</button>
+          <button class="mode" data-mode="decrypt">Decrypt</button>
+        </div>
+      </div>
+
+      <div id="keyWrap">
+        <label id="keyLabel">Shift Key (0–25)</label>
+        <input id="key" type="number" min="0" max="25" value="3">
+      </div>
+
+      <label>Input Text</label>
+      <textarea id="input" placeholder="Enter your plaintext or ciphertext..."></textarea>
+
+      <div class="actions">
+        <button id="run" class="primary">⚡ Execute</button>
+        <button id="clear" class="secondary">Clear</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="output-head">
+        <label>Output</label>
+        <button id="copy" class="small">Copy</button>
+      </div>
+      <pre id="output" class="output">Your result will appear here...</pre>
+      <div class="metrics">
+        <span id="time">⏱ 0 ms</span>
+        <span id="entropy">📊 0 bits/char</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel steps-panel">
+    <h3>🔎 Execution Steps / Explanation</h3>
+    <div id="steps"><p class="muted">Run an operation to see the steps.</p></div>
+  </div>
+</section>
+
+<section id="about" class="page">
+  <div class="section-title">
+    <span class="badge">LEARNING</span>
+    <h2>About Cryptography</h2>
+  </div>
+  <div class="about-grid">
+    <article class="panel"><h3>Caesar Cipher</h3><p>A substitution cipher where each alphabetic character is shifted by a fixed amount. Example: with key 3, A becomes D.</p></article>
+    <article class="panel"><h3>Vigenère Cipher</h3><p>A polyalphabetic substitution cipher. The letters of a keyword determine different shifts for successive plaintext letters.</p></article>
+    <article class="panel"><h3>SHA-256</h3><p>SHA-256 is a cryptographic hash function that produces a 256-bit digest, normally represented as 64 hexadecimal characters. Hashing is one-way and is not decryption.</p></article>
+    <article class="panel"><h3>Brute Force</h3><p>For a Caesar cipher, only 25 non-trivial shifts exist, so an attacker can try every shift and inspect the results.</p></article>
+  </div>
+</section>
+
+<section id="contact" class="page">
+  <div class="section-title">
+    <span class="badge">CONTACT</span>
+    <h2>Project Contact</h2>
+  </div>
+  <form id="contactForm" class="panel contact">
+    <input id="name" placeholder="Your name" required>
+    <input id="email" type="email" placeholder="Email address" required>
+    <textarea id="message" placeholder="Your message" required></textarea>
+    <button class="primary">Send Message</button>
+    <p id="contactStatus" class="success"></p>
+  </form>
+</section>
+</main>
+
+<footer>© 2026 Secure Text Encryption Portal • Final Capstone Project</footer>
+<script src="js/crypto.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
